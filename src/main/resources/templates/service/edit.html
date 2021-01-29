@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Building</title>
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+	integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+	integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+	crossorigin="anonymous"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+	crossorigin="anonymous"></script>
+<link type="text/css" rel="stylesheet" th:href="@{/styles/style.css}">
+
+<style>
+table, th, td {
+	border: 1px solid black;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+th, td {
+	padding: 10px;
+}
+</style>
+</head>
+<body style="background-image: url('https://www.vfnlaw.com/wp-content/uploads/2016/02/corporate-buildings-white-1.jpg')">
+	<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+		<a class="navbar-brand" href="/">Quan ly tòa nhà</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarsExample03" aria-controls="navbarsExample03"
+			aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarsExample03">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active"><a class="nav-link" href="/">Home
+						<span class="sr-only">(current)</span>
+				</a></li>
+
+				<li class="nav-item dropdown show "><a
+					class="nav-link dropdown-toggle" href="/company"
+					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Công ty </a>
+
+					<div class="dropdown-menu" aria-labelledby="dropdown03">
+						<a class="dropdown-item" href="/company">Quan lý </a> <a
+							class="dropdown-item" href="#">Thêm dịch vụ</a> <a
+							class="dropdown-item" href="#">Thống kê doanh thu</a>
+					</div></li>
+				<li class="nav-item dropdown show "><a
+					class="nav-link dropdown-toggle" href="#"
+					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Nhân viên công ty </a>
+
+					<div class="dropdown-menu" aria-labelledby="dropdown03">
+						<a class="dropdown-item" href="/company_employee">Quản
+							lý </a> <a class="dropdown-item" href="#">Xem vào ra </a>
+
+					</div></li>
+				<li class="nav-item dropdown show "><a
+					class="nav-link dropdown-toggle" href="#"
+					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Dịch vụ </a>
+
+					<div class="dropdown-menu" aria-labelledby="dropdown03">
+						<a class="dropdown-item" href="/service">Quản
+							lý</a> <a class="dropdown-item" href="#">thêm Cong ty</a>
+
+					</div></li>
+				<li class="nav-item dropdown show "><a
+					class="nav-link dropdown-toggle" href="#"
+					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Nhân viên tòa nhà </a>
+
+					<div class="dropdown-menu" aria-labelledby="dropdown03">
+						<a class="dropdown-item" href="/building_employee">Quản
+							lý</a> <a class="dropdown-item" href="#">Chuyển vị trí</a>
+
+					</div></li>
+
+			</ul>
+			<a class="nav-link" href="#">Chào :Hiếu <span class="sr-only">(current)</span></a>
+
+			<form class="form-inline my-2 my-md-0">
+				<input class="form-control" type="text" placeholder="Search">
+			</form>
+		</div>
+	</nav>
+
+
+	<h1>Sửa dịch vụ</h1>
+	<form method="POST" th:object="${service}">
+		<table>
+			<tr>
+				<th>Attribute</th>
+				<th>Values</th>
+			</tr>
+			<tr>
+				<td>ID</td>
+				<td th:field="*{id}" th:text="${id}"></td>
+			</tr>
+
+			<tr>
+				<td>Tên dịch vụ</td>
+				<td><input type="text" th:field="*{name}" /></td>
+			</tr>
+			<tr>
+				<td>Loại dịch vụ</td>
+				<td><input type="text" th:field="*{type}" /></td>
+			</tr>
+			<tr>
+				<td>Giá</td>
+				<td><input type="text" th:field="*{price}" /></td>
+			</tr>
+
+		</table>
+
+		<br /> <input type="submit" value="Submit" />
+	</form>
+</body>
+</html>
